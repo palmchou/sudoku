@@ -1,7 +1,6 @@
 *.pyc
 asset/
-data/
 _*
 *~
 
-
+.idea

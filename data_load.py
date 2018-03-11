@@ -8,7 +8,7 @@ import tensorflow as tf
 import numpy as np
 from hyperparams import Hyperparams as hp
 
-def load_data(type="train"):
+def load_data(type="train", fpath=None):
     '''Loads training / test data.
     
     Args
@@ -20,7 +20,8 @@ def load_data(type="train"):
       Y: A 3-D array of int. Entire solutions.
         Has the shape of (# total games, 9, 9)
     '''
-    fpath = hp.train_fpath if type=="train" else hp.test_fpath
+    if not fpath:
+        fpath = hp.train_fpath if type=="train" else hp.test_fpath
     lines = open(fpath, 'r').read().splitlines()[1:]
     nsamples = len(lines)
     
